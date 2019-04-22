@@ -8,6 +8,15 @@ $router->get('/', function($request) {
     return $this->template->render('index.html', ['posts' => $post] );
 });
 
+$router->get('/rss', function($request) {
+    $directory = "./storage/contents/";
+    $ziki = new Ziki\Core\Document($directory);
+    $post = $ziki->getRSS();
+    // Render our view
+
+    return $this->template->render('rss.xml');
+});
+
 $router->get('/blog-details', function($request) {
     $ziki = [
         [ 'name'          => 'Adroit' ],

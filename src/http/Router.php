@@ -38,6 +38,7 @@ class Router
     {
         error("405 Method Not Allowed");
     }
+
     private function defaultRequestHandler()
     {
         error("{$this->request->serverProtocol} 404 Route Not Found");

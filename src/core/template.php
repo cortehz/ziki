@@ -6,14 +6,14 @@ use Twig\Loader\FilesystemLoader;
 class Template
 {
     private $twig;
-    
 
-    public function __construct($templatePath) 
+
+    public function __construct($templatePath)
     {
 
         $this->twig = new Environment( new FilesystemLoader($templatePath),$this->setTwigCaching());
     }
-   
+
     public function render($page, array $parameters = [])
     {
         return $this->twig->render($page, $parameters);
